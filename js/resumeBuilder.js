@@ -57,51 +57,47 @@ education = {
 	{
 		"name": 			"Saint Louis University",
 		"location": 	"Saint Louis",
-		"major": 			"Entrepreneurship",
+		"majors": 		["Entrepreneurship"],
+		"degree":			"BA",
 		"dates": 			"2008",
 		"url":				"http://www.edu.org"
-	},{
-		"name": 			"Udacity",
-		"location": 	"Online",
-		"major": 			"Front End NanoDegree",
-		"dates": 			"2016",
-		"url":				"http://www.udacity.com"
 	}],
 	"onlineCourses":	[
 	{
 		"title":				"Intro to HTML and CSS",
 		"school":				"Udacity",
-		"dates":					"December 2015",
-		"url":					"https://www.udacity.com/course/viewer#!/c-ud304-nd/l-2617868617"
+		"dates":				"December 2015",
+		"url":					"https://www.udacity.com"
 	},
 	{
 		"title":				"Responsive Web Design Fundamentals",
 		"school":				"Udacity",
-		"dates":					"December 2015",
-		"url":					"https://www.udacity.com/course/viewer#!/c-ud893-nd/l-3523969367"
+		"dates":				"December 2015",
+		"url":					"https://www.udacity.com"
 	},
 	{
 		"title":				"Responsive Images",
 		"school":				"Udacity",
-		"dates":					"December 2015",
-		"url":					"https://www.udacity.com/course/viewer#!/c-ud882-nd/l-3574748851/m-3573228854"
+		"dates":				"December 2015",
+		"url":					"https://www.udacity.com"
 	},
 	{
 		"title":				"Javascript Basics",
 		"school":				"Udacity",
-		"dates":					"January 2016",
-		"url":					"https://www.udacity.com/course/viewer#!/c-ud804-nd/l-1946788554/e-3471338563/m-2288608556"
+		"dates":				"January 2016",
+		"url":					"https://www.udacity.com"
 	},
 	{
 		"title":				"Intro to jQuery",
 		"school":				"Udacity",
-		"dates":					"January 2016",
-		"url":					"https://www.udacity.com/course/viewer#!/c-ud245-nd/l-5237351332/m-5058008537"
+		"dates":				"January 2016",
+		"url":					"https://www.udacity.com"
 	}],
 	"display":				function display(){
 		var formattedSchoolName;
 		var formattedSchoolLocation;
-		var formattedSchoolMajor;
+		var formattedSchoolMajors;
+		var formattedSchoolDegree;
 		var formattedSchoolDates;
 		var formattedSchoolUrl;
 	  var i;
@@ -115,7 +111,10 @@ education = {
 				'%data%', education.schools[i].name);
 
 			formattedSchoolDegree = HTMLschoolDegree.replace(
-				'%data%', education.schools[i].major);
+				'%data%', education.schools[i].degree);
+
+			formattedSchoolMajors = HTMLschoolMajor.replace(
+				'%data%', education.schools[i].majors[0]);
 
 			formattedSchoolDates = HTMLschoolDates.replace(
 				'%data%', education.schools[i].dates);
@@ -123,10 +122,11 @@ education = {
 			formattedSchoolLocation = HTMLschoolLocation.replace(
 				'%data%', education.schools[i].location);
 
-			$('.education-entry:last').append(formattedSchoolName);
-			$('.education-entry:last').append(formattedSchoolDegree);
-			$('.education-entry:last').append(formattedSchoolDates);
+			$('.education-entry:last').append(formattedSchoolName +
+																				formattedSchoolDegree);
 			$('.education-entry:last').append(formattedSchoolLocation);
+			$('.education-entry:last').append(formattedSchoolDates);
+			$('.education-entry:last').append(formattedSchoolMajors);
     }}
 
 
@@ -136,19 +136,18 @@ education = {
       if(education.onlineCourses.length > 0){
 
 			var formattedOnlineTitle,
-					formattedOnlineDates,
 					formattedOnlineSchool,
+					formattedOnlineDates,
 					formattedOnlineUrl,
 					onlineSelector;
 
 			onlineSelector = $('h3').last();
 			formattedOnlineTitle = HTMLonlineTitle.replace(
 				'%data%', education.onlineCourses[i].title);
-			$(onlineSelector).append(formattedOnlineTitle);
 
 			formattedOnlineSchool = HTMLonlineSchool.replace(
 				'%data%', education.onlineCourses[i].school);
-			$(onlineSelector).append(formattedOnlineSchool);
+			$(onlineSelector).append(formattedOnlineTitle + formattedOnlineSchool);
 
 			formattedOnlineDates = HTMLonlineDates.replace(
 				'%data%', education.onlineCourses[i].dates);
