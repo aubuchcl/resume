@@ -4,6 +4,7 @@ $('document').ready(function(){
 	bio.display();
 	work.display();
 	education.display();
+	displayContactInfo();
 	$('img').addClass("img-responsive");
 });
 
@@ -293,38 +294,6 @@ projects = {
 			$(".project-entry:last").append(formattedProjectImages);
       }}
 	}
-};
-
-var displayEducation = function displayEducation(){
-	var formattedSchoolName;
-	var formattedSchoolLocation;
-	var formattedSchoolMajor;
-	var formattedSchoolDates;
-	var formattedSchoolUrl;
-  var i;
-
-	for(i in education.schools){
-    if(education.schools.length > 0){
-		$('#education').append(HTMLschoolStart);
-
-		formattedSchoolName = HTMLschoolName.replace(
-			'%data%', education.schools[i].name);
-
-		formattedSchoolDegree = HTMLschoolDegree.replace(
-			'%data%', education.schools[i].major);
-
-		formattedSchoolDates = HTMLschoolDates.replace(
-			'%data%', education.schools[i].dates);
-
-		formattedSchoolLocation = HTMLschoolLocation.replace(
-			'%data%', education.schools[i].location);
-
-		$('.education-entry:last').append(formattedSchoolName);
-		$('.education-entry:last').append(formattedSchoolDegree);
-		$('.education-entry:last').append(formattedSchoolDates);
-		$('.education-entry:last').append(formattedSchoolLocation);
-    }}
-
 };
 
 var displayContactInfo = function displayContactInfo(){
