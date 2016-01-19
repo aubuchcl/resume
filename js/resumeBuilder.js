@@ -299,7 +299,7 @@ projects = {
 var displayContactInfo = function displayContactInfo(){
 	var contact;
   for(contact in bio.contacts){
-    if(bio.contacts.length > 0){
+    if(bio.contacts[contact].length > 0){
 		var formattedBioContact;
 		console.log(bio.contacts[contact]);
 		console.log(contact);
