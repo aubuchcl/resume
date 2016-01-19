@@ -4,7 +4,6 @@ $('document').ready(function() {
   bio.display();
   work.display();
   education.display();
-  displayContactInfo();
   $('img').addClass("img-responsive");
 });
 
@@ -48,6 +47,18 @@ bio = {
         formattedSkill = HTMLskills.replace("%data%",
           bio.skills[i]);
         $("#skills-h3").append(formattedSkill);
+      }
+    }
+    var contact;
+    for (contact in bio.contacts) {
+      if (bio.contacts[contact].length > 0) {
+        var formattedBioContact;
+        console.log(bio.contacts[contact]);
+        console.log(contact);
+        formattedBioContact = HTMLcontactGeneric.replace(
+        "%contact%", contact).replace("%data%", bio.contacts[contact]);
+        $('#topContacts').append(formattedBioContact);
+        $('#footerContacts').append(formattedBioContact);
       }
     }
   }
@@ -156,18 +167,6 @@ education = {
 };
 
 var displayContactInfo = function displayContactInfo() {
-  var contact;
-  for (contact in bio.contacts) {
-    if (bio.contacts.length > 0) {
-      var formattedBioContact;
-      console.log(bio.contacts[contact]);
-      console.log(contact);
-      formattedBioContact = HTMLcontactGeneric.replace(
-        "%contact%", contact).replace("%data%", bio.contacts[contact]);
-      $('#topContacts').append(formattedBioContact);
-      $('#footerContacts').append(formattedBioContact);
-    }
-  }
 };
 
 work = {
@@ -285,21 +284,6 @@ projects = {
         $(".project-entry:last").append(formattedProjectDescription);
         $(".project-entry:last").append(formattedProjectImages);
       }
-    }
-  }
-};
-
-var displayContactInfo = function displayContactInfo() {
-  var contact;
-  for (contact in bio.contacts) {
-    if (bio.contacts[contact].length > 0) {
-      var formattedBioContact;
-      console.log(bio.contacts[contact]);
-      console.log(contact);
-      formattedBioContact = HTMLcontactGeneric.replace(
-        "%contact%", contact).replace("%data%", bio.contacts[contact]);
-      $('#topContacts').append(formattedBioContact);
-      $('#footerContacts').append(formattedBioContact);
     }
   }
 };
