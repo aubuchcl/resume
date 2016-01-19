@@ -62,38 +62,38 @@ education = {
 		"location": 	"Saint Louis",
 		"majors": 		["Entrepreneurship"],
 		"degree":			"BA",
-		"dates": 			"2008",
+		"date": 			"2008",
 		"url":				"http://www.edu.org"
 	}],
 	"onlineCourses":	[
 	{
 		"title":				"Intro to HTML and CSS",
 		"school":				"Udacity",
-		"dates":				"December 2015",
+		"date":				"December 2015",
 		"url":					"https://www.udacity.com"
 	},
 	{
 		"title":				"Responsive Web Design Fundamentals",
 		"school":				"Udacity",
-		"dates":				"December 2015",
+		"date":				"December 2015",
 		"url":					"https://www.udacity.com"
 	},
 	{
 		"title":				"Responsive Images",
 		"school":				"Udacity",
-		"dates":				"December 2015",
+		"date":				"December 2015",
 		"url":					"https://www.udacity.com"
 	},
 	{
 		"title":				"Javascript Basics",
 		"school":				"Udacity",
-		"dates":				"January 2016",
+		"date":				"January 2016",
 		"url":					"https://www.udacity.com"
 	},
 	{
 		"title":				"Intro to jQuery",
 		"school":				"Udacity",
-		"dates":				"January 2016",
+		"date":				"January 2016",
 		"url":					"https://www.udacity.com"
 	}],
 	"display":				function display(){
@@ -120,7 +120,7 @@ education = {
 				'%data%', education.schools[i].majors[0]);
 
 			formattedSchoolDates = HTMLschoolDates.replace(
-				'%data%', education.schools[i].dates);
+				'%data%', education.schools[i].date);
 
 			formattedSchoolLocation = HTMLschoolLocation.replace(
 				'%data%', education.schools[i].location);
@@ -153,7 +153,7 @@ education = {
 			$(onlineSelector).append(formattedOnlineTitle + formattedOnlineSchool);
 
 			formattedOnlineDates = HTMLonlineDates.replace(
-				'%data%', education.onlineCourses[i].dates);
+				'%data%', education.onlineCourses[i].date);
 			$(onlineSelector).append(formattedOnlineDates);
 
 			formattedOnlineUrl = HTMLonlineURL.replace(
@@ -181,10 +181,10 @@ var displayContactInfo = function displayContactInfo(){
 work = {
 	"jobs": [
 	{
-		"employer": 		"Myself",
+		"employer": 		"Self-Employed",
 		"title": 				"property manager",
 		"location": 		"Kings Beach, CA",
-		"dates":				"2015-present",
+		"date":				"2015-present",
 		"description": 	"I am responsible for all listings " +
 		", reservations, and maintenance of the property as " +
 		"well as guest communication and satisfaction.  " +
@@ -195,7 +195,7 @@ work = {
 		"employer": 		"Northstar",
 		"title":				"Ski Instructor",
 		"location": 		"Kings Beach, CA",
-		"dates": 				"2010-2014",
+		"date": 				"2010-2014",
 		"description": 	"I spent five seasons teaching students to " +
 		"love skiing.  I worked with just about anyone you can imagine.  "+
 		"From first time 2 year olds to first time 80 year olds, I created "+
@@ -211,7 +211,7 @@ work = {
 			//set vars to aviod improper hoisting
 			var formattedEmployer;
 			var formattedTitle;
-			var formattedDates;
+			var formattedDate;
 			var formattedLocation;
 			var formattedDescription;
 
@@ -225,8 +225,8 @@ work = {
 			formattedTitle = HTMLworkTitle.replace("%data%",
 				work.jobs[job].title);
 
-			formattedDates = HTMLworkDates.replace("%data%",
-				work.jobs[job].dates);
+			formattedDate = HTMLworkDates.replace("%data%",
+				work.jobs[job].date);
 
 			formattedLocation = HTMLworkLocation.replace("%data%",
 				work.jobs[job].location);
@@ -236,7 +236,7 @@ work = {
 
 			$(".work-entry:last").append(formattedEmployer);
 			$(".work-entry:last").append(formattedTitle);
-			$(".work-entry:last").append(formattedDates);
+			$(".work-entry:last").append(formattedDate);
 			$(".work-entry:last").append(formattedLocation);
 			$(".work-entry:last").append(formattedDescription);
       }}
@@ -248,7 +248,7 @@ projects = {
 	{
 		"title":				"MetaGame",
 		"url":					"metagame.herokuapp.com",
-		"dates":				"summer 2014",
+		"date":				"summer 2014",
 		"description":	"A project that I built with friends.  "+
 		"MetaGame was a Rails site that let users build competitions "+
 		"and find other gamers based on the games that they were interested " +
@@ -258,7 +258,7 @@ projects = {
 	{
 		"title":				"NanoDegree",
 		"url":					"http://www.udacity.com",
-		"dates":				"2016",
+		"date":				"2016",
 		"description":	"Front End NanoDegree, or a certification "+
 		"that helped me to build a portfolio of projects.  These projects " +
 		"allow me to showcase the my skills as a front end developer.  The " +
@@ -268,7 +268,7 @@ projects = {
 	}],
 	"display":		function display(){
 		var formattedProjectTitle;
-		var formattedProjectDates;
+		var formattedProjectDate;
 		var formattedProjectDescription;
 		var formattedProjectImages;
 		var i;
@@ -280,8 +280,8 @@ projects = {
 				"%url%", projects.project[i].url).replace(
 				"%data%", projects.project[i].title);
 
-			formattedProjectDates = HTMLprojectDates.replace(
-				"%data%", projects.project[i].dates);
+			formattedProjectDate = HTMLprojectDates.replace(
+				"%data%", projects.project[i].date);
 
 			formattedProjectDescription = HTMLprojectDescription
 			.replace("%data%", projects.project[i].description);
@@ -291,7 +291,7 @@ projects = {
 				"%data%", projects.project[i].images[0]);
 
 			$(".project-entry:last").append(formattedProjectTitle);
-			$(".project-entry:last").append(formattedProjectDates);
+			$(".project-entry:last").append(formattedProjectDate);
 			$(".project-entry:last").append(formattedProjectDescription);
 			$(".project-entry:last").append(formattedProjectImages);
       }}
