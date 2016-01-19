@@ -30,24 +30,27 @@ bio = {
 	"skills":			["Javascript", "HTML", "CSS"],
 	"biopic":		"http://goo.gl/IjmdBp",
 	"display": function display(){
-		if(bio.skills.length > 0){
-			var formattedSkill, formattedPic;
-			$("#header").append(HTMLskillsStart);
 
-			formattedPic = HTMLbioPic.replace("%data%", bio.biopic);
-			$("#skills-h3").append(formattedPic);
+		var formattedSkill, formattedPic, formattedWelcome;
+		formattedPic = HTMLbioPic.replace("%data%", bio.biopic);
+		$("#header").append(formattedPic);
 
-			formattedSkill = HTMLskills.replace("%data%",
-				bio.skills[0]);
-			$("#skills-h3").append(formattedSkill);
+		formattedWelcome = HTMLwelcomeMsg.replace(
+			'%data%', bio.welcomeMessage)
+		$("#header").append(formattedWelcome);
 
-			formattedSkill = HTMLskills.replace("%data%",
-				bio.skills[1]);
-			$("#skills-h3").append(formattedSkill);
+		$("#header").append(HTMLskillsStart);
 
-			formattedSkill = HTMLskills.replace("%data%",
-				bio.skills[2]);
-			$("#skills-h3").append(formattedSkill);
+
+
+		for(i in bio.skills){
+			if(bio.skills.length > 0){
+
+
+				formattedSkill = HTMLskills.replace("%data%",
+					bio.skills[i]);
+				$("#skills-h3").append(formattedSkill);
+			}
 		}
 	}
 };
