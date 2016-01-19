@@ -36,13 +36,13 @@ bio = {
 		$("#header").append(formattedPic);
 
 		formattedWelcome = HTMLwelcomeMsg.replace(
-			'%data%', bio.welcomeMessage)
+			'%data%', bio.welcomeMessage);
 		$("#header").append(formattedWelcome);
 
 		$("#header").append(HTMLskillsStart);
 
 
-
+		var i;
 		for(i in bio.skills){
 			if(bio.skills.length > 0){
 
@@ -311,4 +311,3 @@ var displayContactInfo = function displayContactInfo(){
 		$('#footerContacts').append(formattedBioContact);
     }}
 };
-
